@@ -1,3 +1,7 @@
+import 'dart:html';
+import 'dart:ui';
+
+import 'package:covid_tracker/datasorce.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -9,7 +13,24 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        centerTitle: false,
+        title: Text('COVID-19 TRACKER',),
+      ),
+      body: SingleChildScrollView(child: Column(
+        children: <Widget>[
+          Container(
+            height: 100,
+            alignment: Alignment.center,
+            padding: EdgeInsets.all(10),
+            color: Colors.orange[10],
+            child: Text(DataSource.quote,
+            style: TextStyle(color: Colors.orange[800], fontWeight: FontWeight.bold,fontSize: 16,
+          ),
+        ),
+      )
+      ],
+      ),),
     );
   }
 }
