@@ -1,7 +1,8 @@
-import 'dart:html';
+
 import 'dart:ui';
 
 import 'package:covid_tracker/datasorce.dart';
+import 'package:covid_tracker/panels/worldwidepanel.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -23,12 +24,14 @@ class _HomePageState extends State<HomePage> {
             height: 100,
             alignment: Alignment.center,
             padding: EdgeInsets.all(10),
-            color: Colors.orange[10],
+            color: Colors.orange[200],
             child: Text(DataSource.quote,
             style: TextStyle(color: Colors.orange[800], fontWeight: FontWeight.bold,fontSize: 16,
           ),
         ),
-      )
+      ),
+      Text('Worldwide',style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
+      WorldwidePannel(),
       ],
       ),),
     );
