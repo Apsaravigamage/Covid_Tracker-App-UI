@@ -19,6 +19,7 @@ class _HomePageState extends State<HomePage> {
         title: Text('COVID-19 TRACKER',),
       ),
       body: SingleChildScrollView(child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
             height: 100,
@@ -30,7 +31,10 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      Text('Worldwide',style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
+      Padding(
+        padding: const EdgeInsets.symmetric(vertical:10.0, horizontal: 10),
+        child: Text('Worldwide',style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
+      ),
       WorldwidePannel(),
       ],
       ),),
