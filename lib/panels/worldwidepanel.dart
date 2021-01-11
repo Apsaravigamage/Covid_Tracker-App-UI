@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 class WorldwidePannel extends StatelessWidget {
+  final Map worldData;
+
+  const WorldwidePannel({Key key, this.worldData}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,25 +17,25 @@ class WorldwidePannel extends StatelessWidget {
             title: 'CONFIRMED',
             panelColor: Colors.red[100],
             textColor: Colors.red,
-            count: '123',
+            count: worldData['cases'].toString(),
           ),
           StatusPanel(
             title: 'ACTIVE',
             panelColor: Colors.blue[100],
             textColor: Colors.blue,
-            count: '123',
+            count: worldData['active'].toString(),
           ),
           StatusPanel(
             title: 'RECOVERED',
             panelColor: Colors.green[100],
             textColor: Colors.green,
-            count: '123',
+            count: worldData['recovered'].toString(),
           ),
           StatusPanel(
             title: 'DEATHS',
             panelColor: Colors.grey[200],
             textColor: Colors.grey,
-            count: '123',
+            count: worldData['deaths'].toString(),
           ),
         ],
       )

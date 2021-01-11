@@ -1,9 +1,10 @@
 
-import 'dart:ui';
+import 'dart:convert';
 
 import 'package:covid_tracker/datasorce.dart';
 import 'package:covid_tracker/panels/worldwidepanel.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class HomePage extends StatefulWidget {
   @override
@@ -11,6 +12,21 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  Map worldData;
+  fatchWorldWideData()async{
+    http.Response response = await http.get('https://corona.lmao.ninja/v2/all');
+    setState(() {
+      worldData = json.decode(response.body);
+    });
+  }
+
+  @override
+  void initState() {
+    fatchWorldWideData();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,9 +51,10 @@ class _HomePageState extends State<HomePage> {
         padding: const EdgeInsets.symmetric(vertical:10.0, horizontal: 10),
         child: Text('Worldwide',style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
       ),
-      WorldwidePannel(),
+      worldData==null?CircularProgressIndicator():WorldwidePannel(worldData: worldData,) 
       ],
       ),),
     );
   }
 }
+ 
