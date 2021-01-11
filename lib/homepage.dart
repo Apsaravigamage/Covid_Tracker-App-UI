@@ -49,7 +49,19 @@ class _HomePageState extends State<HomePage> {
       ),
       Padding(
         padding: const EdgeInsets.symmetric(vertical:10.0, horizontal: 10),
-        child: Text('Worldwide',style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text('Worldwide',style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
+            Container(
+              decoration: BoxDecoration(
+                 color: primaryBlack,
+                 borderRadius: BorderRadius.circular(15),
+              ),
+              padding: EdgeInsets.all(10),
+              child: Text('Regional',style: TextStyle(fontSize: 16,color:Colors.white,fontWeight: FontWeight.bold),)),
+          ],
+        ),
       ),
       worldData==null?CircularProgressIndicator():WorldwidePannel(worldData: worldData,) 
       ],
