@@ -82,6 +82,8 @@ class _HomePageState extends State<HomePage> {
       SizedBox(height:10,),
       countryData==null?Container():MostAffectedPanel(countryData: countryData,),
       InfoPanel(),
+      SizedBox(height:20,),
+      Center(child: Text('WE ARE TOGETHER IN THE FIGHT',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16,),)),
       SizedBox(height:50,)
       ],
       ),
