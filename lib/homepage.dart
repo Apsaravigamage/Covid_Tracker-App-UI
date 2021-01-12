@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 import 'package:covid_tracker/datasorce.dart';
+import 'package:covid_tracker/panels/infoPanel.dart';
 import 'package:covid_tracker/panels/mosteffectedcountries.dart';
 import 'package:covid_tracker/panels/worldwidepanel.dart';
 import 'package:flutter/material.dart';
@@ -79,9 +80,11 @@ class _HomePageState extends State<HomePage> {
         child: Text('Most affected Countries',style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
       ), 
       SizedBox(height:10,),
-      countryData==null?Container():MostAffectedPanel(countryData: countryData,)
+      countryData==null?Container():MostAffectedPanel(countryData: countryData,),
+      InfoPanel(),
       ],
-      ),),
+      ),
+    ),
     );
   }
 }
