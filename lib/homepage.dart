@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 import 'package:covid_tracker/datasorce.dart';
+import 'package:covid_tracker/panels/mosteffectedcountries.dart';
 import 'package:covid_tracker/panels/worldwidepanel.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -21,9 +22,18 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  List countryData;
+  fatchCountryData()async{
+    http.Response response = await http.get('https://corona.lmao.ninja/v2/countries');
+    setState(() {
+      countryData = json.decode(response.body);
+    });
+  }
+
   @override
   void initState() {
     fatchWorldWideData();
+    fatchCountryData();
     super.initState();
   }
 
@@ -63,7 +73,13 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
-      worldData==null?CircularProgressIndicator():WorldwidePannel(worldData: worldData,) 
+      worldData==null?CircularProgressIndicator():WorldwidePannel(worldData: worldData,),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal:10.0),
+        child: Text('Most affected Countries',style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
+      ), 
+      SizedBox(height:10,),
+      countryData==null?Container():MostAffectedPanel(countryData: countryData,)
       ],
       ),),
     );
