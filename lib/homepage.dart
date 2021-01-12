@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 import 'package:covid_tracker/datasorce.dart';
+import 'package:covid_tracker/pages/country.dart';
 import 'package:covid_tracker/panels/infoPanel.dart';
 import 'package:covid_tracker/panels/mosteffectedcountries.dart';
 import 'package:covid_tracker/panels/worldwidepanel.dart';
@@ -64,13 +65,18 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('Worldwide',style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold),),
-            Container(
-              decoration: BoxDecoration(
-                 color: primaryBlack,
-                 borderRadius: BorderRadius.circular(15),
-              ),
-              padding: EdgeInsets.all(10),
-              child: Text('Regional',style: TextStyle(fontSize: 16,color:Colors.white,fontWeight: FontWeight.bold),)),
+            GestureDetector(
+              onTap: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>CountryPage()));
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                   color: primaryBlack,
+                   borderRadius: BorderRadius.circular(15),
+                ),
+                padding: EdgeInsets.all(10),
+                child: Text('Regional',style: TextStyle(fontSize: 16,color:Colors.white,fontWeight: FontWeight.bold),)),
+            ),
           ],
         ),
       ),
