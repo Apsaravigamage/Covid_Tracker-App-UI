@@ -82,6 +82,7 @@ class _HomePageState extends State<HomePage> {
       SizedBox(height:10,),
       countryData==null?Container():MostAffectedPanel(countryData: countryData,),
       InfoPanel(),
+      SizedBox(height:50,)
       ],
       ),
     ),
